@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piracy Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Piracy Detection Web App</h1>
+        <form id="piracyForm" method="POST">
+            <label for="text">Enter Text to Check for Piracy:</label>
+            <textarea id="text" name="text" rows="5" required></textarea>
+            <button type="submit" id="submitBtn">Check Piracy</button>
+        </form>
+
+        <div id="loading" class="loading-message" style="display: none;">
+            <p>Processing your request...</p>
+        </div>
+
+        <div id="result-container">
+            {% if result %}
+                <h2>Result: {{ result }}</h2>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
